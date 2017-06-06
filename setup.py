@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='devscripts',
-    package=['devscripts'],
+    packages=['devscripts'],
     version='0.0',
     description='Scripts and functions to use while coding',
     author='Theo Massard',
