@@ -73,7 +73,7 @@ def _add_http_handler(**kwargs):
         method=http_method,
         credentials=http_credentials,
         context=http_context
-        )
+    )
 
     http_handler.setLevel(http_level)
     return http_handler

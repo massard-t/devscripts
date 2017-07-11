@@ -23,8 +23,6 @@ def retry(exception_to_check, tries=5, delay=5, multiplier=2):
     def deco_retry(func):
         '''Creates the retry decorator'''
 
-        ExceptionToCheck = exception_to_check
-
         @wraps(func)
         def func_retry(*args, **kwargs):
             '''Actual wrapped function'''
@@ -32,13 +30,13 @@ def retry(exception_to_check, tries=5, delay=5, multiplier=2):
                 raise ValueError(
                     'multiplier = {}. It has to be superior to 1.'.format(
                         multiplier
-                        )
                     )
+                )
             mtries, mdelay = tries, delay
             while mtries > 1:
                 try:
                     return func(*args, **kwargs)
-                except ExceptionToCheck as err:
+                except exception_to_check as err:
                     message = "%s, retrying in %d seconds..." % (
                         str(err), mdelay)
                     print(message)
