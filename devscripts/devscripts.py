@@ -24,6 +24,7 @@ def retry(exception_to_check, tries=5, delay=5, multiplier=2):
         '''Creates the retry decorator'''
 
         ExceptionToCheck = exception_to_check
+
         @wraps(func)
         def func_retry(*args, **kwargs):
             '''Actual wrapped function'''
