@@ -3,7 +3,7 @@ Setup for devscripts
 """
 from distutils.core import setup
 
-__version__ = '0.1.4'
+__version__ = '1.0.0'
 URL = 'https://github.com/massard-t/devscripts/archive/{}.tar.gz'.format(
     __version__
 )
