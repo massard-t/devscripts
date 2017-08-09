@@ -4,11 +4,13 @@ Simple logging module made for development
 """
 import logging
 
-FORMAT = '%(asctime)s :: %(levelname)s :: %(message)s'
+__author__ = 'Theo Massard <massar_t@etna-alternance.net>'
+
+DEFAULT_FORMAT = '%(asctime)s :: %(levelname)s :: %(message)s'
 
 
 def simple_logger(**kwargs):
-    '''
+    """
     Creates a simple logger
 
     :param str name: The logger's name ('api', 'back'...)
@@ -25,7 +27,7 @@ def simple_logger(**kwargs):
                            (Has to be superior or equals to base_level)
     :param str http_host: Address of the HTTP Server
     :param str http_url: Url of the HTTP Server
-    '''
+    """
     # Args
     logger_name = kwargs.get('name')
     base_level = kwargs.get('base_level', logging.DEBUG)
@@ -49,7 +51,7 @@ def simple_logger(**kwargs):
 
 def _add_stream_handler(**kwargs):
     stdout_level = kwargs.get('stdout_level', logging.DEBUG)
-    log_format = kwargs.get('log_format', FORMAT)
+    log_format = kwargs.get('log_format', DEFAULT_FORMAT)
     stream_handler = logging.StreamHandler()
     formatter = logging.Formatter(log_format)
     stream_handler.setFormatter(formatter)
